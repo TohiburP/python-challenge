@@ -27,7 +27,6 @@ with open(csvpath, newline = '') as csvfile:
     greatest_inc_month = row[0]
 
     for row in csvreader:
- 
         total_months = total_months + 1
         total_revenue = total_revenue + int(row[1])
 
