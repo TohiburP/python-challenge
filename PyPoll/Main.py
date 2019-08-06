@@ -11,15 +11,15 @@ with open(csvpath, 'r') as csvfile:
     csvread = csv.reader(csvfile)
     next(csvread, None)
 
-    for row in csvread:
-        total_votes += 1
-        if row[2] in poll_data.keys():
-            poll_data[row[2]] = poll_data[row[2]] + 1
-        else:
-            poll_data[row[2]] = 1 
-    
-candidates = []  
-tot_num_votes = []
+for row in csvread:
+    total_votes += 1
+
+if row[2] in poll_data.keys():
+    poll_data[row[2]] = poll_data[row[2]] + 1
+else:
+    poll_data[row[2]] = 1 
+    candidates = []  
+    tot_num_votes = []
 
 #Total Number of votes
 for key, value in poll_data.items():
@@ -36,9 +36,10 @@ clean_data = list(zip(candidates, tot_num_votes, percentage_votes))
 
 winner_list = []
 for name in clean_data:
-    if max(tot_num_votes) == name[1]:
-        winner_list.append(name[0])
-winner = winner_list[0]
+
+if max(tot_num_votes) == name[1]:
+    winner_list.append(name[0])
+    winner = winner_list[0]
 
 # Print the data
 print ("Election results :")
