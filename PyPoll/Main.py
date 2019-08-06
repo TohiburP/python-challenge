@@ -1,7 +1,7 @@
 import os 
 import csv
 
-#path to the csvfile
+#csvfile
 csvpath = os.path.join('election_data.csv')
 
 #initializing the variables 
@@ -21,17 +21,17 @@ with open(csvpath, 'r') as csvfile:
 candidates = []  
 tot_num_votes = []
 
-# Total Number of votes
+#Total Number of votes
 for key, value in poll_data.items():
     candidates.append(key)
     tot_num_votes.append(value)
   
-# Percentage of votes
+#Percentage of votes
 percentage_votes =[]
 for n in tot_num_votes:
     percentage_votes.append(round(n/total_votes * 100, 1))
  
-# Finding the winner
+#who is the winner
 clean_data = list(zip(candidates, tot_num_votes, percentage_votes))
 
 winner_list = []
@@ -40,7 +40,7 @@ for name in clean_data:
         winner_list.append(name[0])
 winner = winner_list[0]
 
-# Print all data
+# Print the data
 print ("Election results :")
 print(total_votes) 
 print(candidates)  
