@@ -18,9 +18,9 @@ with open(csvpath, 'r') as csvfile:
         else:
             poll_data[row[2]] = 1 
     
-
 candidates = []  
 tot_num_votes = []
+
 # Total Number of votes
 for key, value in poll_data.items():
     candidates.append(key)
